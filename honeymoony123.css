@@ -1,44 +1,70 @@
-/* -- INICIO DO SEU ESTILO (honeymoonycss.css) -- */
+/* --- CÓDIGO ESTILO KELSEY (FUNDO GERAL) --- */
 
-/* Caixa principal do personagem */
+/* 1. Isso remove o fundo padrão do Chub e prepara o terreno */
+body, .ant-layout, .ant-layout-content {
+    background-color: #0f1116 !important;
+}
+
+/* 2. AQUI ESTÁ A SUA IMAGEM DE FUNDO */
+body::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    
+    /* Link direto que você escolheu */
+    background-image: url('https://i.ibb.co/j9DwLrFg/baixados-10.jpg'); 
+    
+    background-size: cover;       /* Faz a imagem cobrir a tela toda */
+    background-position: center;  /* Centraliza a imagem */
+    opacity: 0.4;                 /* Transparência (0.4 = 40% visível). Aumente se quiser mais forte */
+    pointer-events: none;
+    z-index: 0;
+}
+
+/* --- CÓDIGO DA CAIXA DE DESCRIÇÃO --- */
+
 .hm-card {
-    background-color: #1a1a1a;   /* Fundo escuro */
-    border: 2px solid #e6b3cc;   /* Borda rosa suave */
-    border-radius: 15px;         /* Cantos arredondados */
-    padding: 20px;               /* Espaço interno */
-    color: #ffffff;              /* Cor do texto */
-    font-family: sans-serif;     /* Fonte simples */
-    text-align: center;          /* Texto centralizado */
-    box-shadow: 0 0 15px rgba(230, 179, 204, 0.4); /* Brilho suave */
-    max-width: 600px;            /* Largura máxima */
-    margin: 20px auto;           /* Centraliza na tela */
+    position: relative;
+    z-index: 1;
+    background-color: rgba(0, 0, 0, 0.7); /* Fundo preto transparente para ler o texto */
+    border: 2px solid #ff99cc; /* Borda rosa claro combinando com a imagem */
+    border-radius: 15px;
+    padding: 20px;
+    color: white;
+    box-shadow: 0 0 15px rgba(255, 153, 204, 0.3); /* Brilho suave */
+    text-align: center;
+    backdrop-filter: blur(3px); /* Efeito vidro */
+    max-width: 800px;
+    margin: 0 auto;
 }
 
-/* Título (Nome do Personagem) */
 .hm-titulo {
-    font-size: 2em;
-    color: #e6b3cc;              /* Cor do título igual a borda */
+    font-size: 2.5em;
+    font-family: sans-serif;
     font-weight: bold;
-    margin-bottom: 10px;
+    color: #ff99cc; /* Título rosa claro */
     text-transform: uppercase;
-    letter-spacing: 2px;
+    margin-bottom: 10px;
+    text-shadow: 2px 2px 4px #000;
 }
 
-/* Linha divisória decorativa */
 .hm-linha {
+    border: 0;
     height: 1px;
-    background: linear-gradient(90deg, transparent, #e6b3cc, transparent);
-    margin: 15px 0;
-    border: none;
+    background: linear-gradient(90deg, transparent, #ff99cc, transparent);
+    margin: 20px 0;
 }
 
-/* Caixa de destaque para informações */
 .hm-info {
-    background-color: #252525;
-    padding: 8px 15px;
-    border-radius: 8px;
     display: inline-block;
+    background: rgba(255, 153, 204, 0.2); /* Fundo rosa bem fraquinho */
+    border: 1px solid #ff99cc;
+    color: white;
+    padding: 5px 12px;
+    border-radius: 20px;
     margin: 5px;
     font-size: 0.9em;
-    color: #ffd1dc;
 }
