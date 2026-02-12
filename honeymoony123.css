@@ -1,43 +1,653 @@
+/*
+=================================================================
+  honeymoony123.css — Custom Theme for Chub.ai
+  Profile: honey-moony
+  Aesthetic: Dreamy Blue Glassmorphism + Neon Pink/Purple Glow
+  Background: Japanese train scene (981ir2.jpg)
+=================================================================
+*/
+
+/*
+////////////////////////////////////////////////////////////////////////////////
+// 1. FONT IMPORTS
+////////////////////////////////////////////////////////////////////////////////
+*/
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&display=swap');
+
+/*
+////////////////////////////////////////////////////////////////////////////////
+// 2. CSS VARIABLES (ROOT THEME)
+////////////////////////////////////////////////////////////////////////////////
+*/
 :root {
-  --msn-glass: rgba(20, 35, 50, 0.65) !important;
-  --msn-glass-border: 1px solid rgba(255, 255, 255, 0.35) !important;
-  --msn-glow: 0 0 10px rgba(255, 105, 180, 0.6) !important;
-  --accent: hotpink !important;
+  --hm-bg-dark: #0c0e1a;
+  --hm-glass: rgba(15, 18, 35, 0.65);
+  --hm-glass-strong: rgba(15, 18, 35, 0.85);
+  --hm-glass-border: 1px solid rgba(180, 140, 255, 0.15);
+  --hm-accent: #c77dff;
+  --hm-accent-pink: #ff69b4;
+  --hm-accent-blue: #7eb8da;
+  --hm-glow: 0 0 12px rgba(199, 125, 255, 0.5);
+  --hm-glow-pink: 0 0 12px rgba(255, 105, 180, 0.5);
+  --hm-shadow: 0 4px 16px rgba(0, 0, 0, 0.4);
+  --hm-ink: #e4e0f0;
+  --hm-muted: #9a95b0;
+  --hm-font: 'Quicksand', 'Segoe UI', Tahoma, sans-serif;
+  --hm-font-mono: 'Space Mono', monospace;
+  --dark-background-color: transparent !important;
 }
 
-/* Remove fundos opacos para exibir a imagem de fundo */
-.ant-layout, .ant-layout-header, .ant-layout-footer, .ant-layout-content {
-    background: transparent !important;
+/*
+////////////////////////////////////////////////////////////////////////////////
+// 3. GLOBAL BACKGROUND & LAYOUT TRANSPARENCY
+////////////////////////////////////////////////////////////////////////////////
+*/
+
+/* Make the default Ant Design backgrounds transparent so our image shows */
+body,
+.ant-layout,
+.ant-layout-header,
+.ant-layout-footer,
+.ant-layout-content {
+  background: transparent !important;
 }
 
-/* Aplica o efeito de vidro nas cartas de personagem */
+/* Dark base color for the body */
+body {
+  background: var(--hm-bg-dark) !important;
+  font-family: var(--hm-font) !important;
+  color: var(--hm-ink) !important;
+}
+
+/* Background image via body::before pseudo-element */
+body::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url('https://files.catbox.moe/981ir2.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-attachment: fixed;
+  z-index: 0;
+  opacity: 0.35;
+  pointer-events: none;
+}
+
+/* Gradient overlay for better readability */
+body::after {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    180deg,
+    rgba(12, 14, 26, 0.3) 0%,
+    rgba(12, 14, 26, 0.6) 50%,
+    rgba(12, 14, 26, 0.85) 100%
+  );
+  z-index: 0;
+  pointer-events: none;
+}
+
+/*
+////////////////////////////////////////////////////////////////////////////////
+// 4. GLASSMORPHISM CARDS
+////////////////////////////////////////////////////////////////////////////////
+*/
+
+/* Character cards — frosted glass effect */
 .ant-card {
-    background: var(--msn-glass) !important;
-    backdrop-filter: blur(12px) !important;
-    border: var(--msn-glass-border) !important;
-    border-radius: 12px !important;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4) !important;
-    transition: all .2s !important;
+  background: var(--hm-glass) !important;
+  backdrop-filter: blur(14px) saturate(130%) !important;
+  -webkit-backdrop-filter: blur(14px) saturate(130%) !important;
+  border: var(--hm-glass-border) !important;
+  border-radius: 16px !important;
+  box-shadow: var(--hm-shadow), inset 0 1px 0 rgba(255, 255, 255, 0.08) !important;
+  transition: all 0.35s cubic-bezier(0.25, 1, 0.5, 1) !important;
+  overflow: hidden !important;
 }
 
-/* Brilho neon ao passar o mouse */
+/* Neon glow on hover */
 .ant-card:hover {
-    box-shadow: 0 0 15px var(--accent), 0 0 30px rgba(255, 105, 180, 0.4) !important;
-    border-color: var(--accent) !important;
-    transform: translateY(-2px) !important;
+  box-shadow:
+    0 0 18px rgba(199, 125, 255, 0.5),
+    0 0 36px rgba(199, 125, 255, 0.2),
+    0 8px 24px rgba(0, 0, 0, 0.4) !important;
+  border-color: rgba(199, 125, 255, 0.5) !important;
+  transform: translateY(-4px) !important;
 }
 
-/* Botões com gradiente e estilo de sistema operacional antigo */
+/* Card body text */
+.ant-card-body {
+  color: var(--hm-ink) !important;
+}
+
+/*
+////////////////////////////////////////////////////////////////////////////////
+// 5. NAVBAR / HEADER STYLING
+////////////////////////////////////////////////////////////////////////////////
+*/
+.ant-layout-header {
+  position: relative;
+  background: linear-gradient(
+    180deg,
+    rgba(20, 22, 40, 0.92) 0%,
+    rgba(15, 17, 32, 0.95) 100%
+  ) !important;
+  backdrop-filter: blur(16px) !important;
+  -webkit-backdrop-filter: blur(16px) !important;
+  border-bottom: 1px solid rgba(180, 140, 255, 0.12) !important;
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.05),
+    0 2px 8px rgba(0, 0, 0, 0.4) !important;
+}
+
+/* Menu items */
+.ant-menu-overflow-item,
+.ant-menu.ant-menu-horizontal.ant-menu-dark {
+  background-color: transparent !important;
+}
+
+/*
+////////////////////////////////////////////////////////////////////////////////
+// 6. BUTTONS
+////////////////////////////////////////////////////////////////////////////////
+*/
+
+/* Default buttons — glass style */
 button.ant-btn.ant-btn-default {
-    background: linear-gradient(180deg, rgba(70, 70, 75, 0.95) 0%, rgba(55, 55, 60, 0.9) 30%, rgba(45, 45, 50, 0.92) 50%, rgba(35, 35, 40, 0.95) 100%) !important;
-    color: #e0e0e0 !important;
-    border: 1px solid rgba(0, 0, 0, 0.5) !important;
-    border-radius: 4px !important;
-    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.8) !important;
+  background: linear-gradient(
+    180deg,
+    rgba(40, 35, 60, 0.9) 0%,
+    rgba(25, 22, 45, 0.95) 100%
+  ) !important;
+  color: var(--hm-ink) !important;
+  border: 1px solid rgba(180, 140, 255, 0.2) !important;
+  border-radius: 12px !important;
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.08),
+    0 2px 6px rgba(0, 0, 0, 0.3) !important;
+  font-family: var(--hm-font) !important;
+  font-weight: 600 !important;
+  transition: all 0.25s ease !important;
 }
 
-button.ant-btn:hover {
-    filter: brightness(1.15) !important;
-    background: var(--accent) !important;
-    color: #fff !important;
+button.ant-btn.ant-btn-default:hover {
+  background: var(--hm-accent) !important;
+  color: #fff !important;
+  border-color: var(--hm-accent) !important;
+  box-shadow: var(--hm-glow) !important;
+}
+
+/* Primary buttons — accent gradient */
+button.ant-btn.ant-btn-primary {
+  background: linear-gradient(135deg, var(--hm-accent), var(--hm-accent-pink)) !important;
+  color: #fff !important;
+  border: none !important;
+  border-radius: 12px !important;
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.3),
+    0 2px 8px rgba(199, 125, 255, 0.3) !important;
+  font-family: var(--hm-font) !important;
+  font-weight: 700 !important;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+button.ant-btn.ant-btn-primary:hover {
+  filter: brightness(1.15);
+  box-shadow:
+    0 0 16px rgba(199, 125, 255, 0.6),
+    0 0 32px rgba(255, 105, 180, 0.3) !important;
+}
+
+/* General button styling */
+button.ant-btn {
+  border-radius: 12px !important;
+  font-family: var(--hm-font) !important;
+  transition: all 0.2s ease !important;
+}
+
+/*
+////////////////////////////////////////////////////////////////////////////////
+// 7. TAGS
+////////////////////////////////////////////////////////////////////////////////
+*/
+.ant-tag {
+  background: rgba(199, 125, 255, 0.15) !important;
+  color: var(--hm-accent) !important;
+  border: 1px solid rgba(199, 125, 255, 0.3) !important;
+  border-radius: 8px !important;
+  font-size: 0.7rem !important;
+  font-weight: 600 !important;
+  font-family: var(--hm-font) !important;
+  transition: all 0.2s !important;
+}
+
+.ant-tag:hover {
+  background: var(--hm-accent) !important;
+  color: #fff !important;
+  border-color: var(--hm-accent) !important;
+  cursor: pointer;
+}
+
+/* NSFW tag special styling */
+.ant-tag.ant-tag-error {
+  background: rgba(255, 80, 100, 0.15) !important;
+  color: #ff5064 !important;
+  border-color: rgba(255, 80, 100, 0.3) !important;
+}
+
+/*
+////////////////////////////////////////////////////////////////////////////////
+// 8. TYPOGRAPHY
+////////////////////////////////////////////////////////////////////////////////
+*/
+:is(h1, h2, h3).ant-typography[class*=css-] {
+  font-family: var(--hm-font) !important;
+  font-weight: 300 !important;
+  color: #fff !important;
+  letter-spacing: -0.01em !important;
+  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.15), 0 2px 6px rgba(0, 0, 0, 0.4);
+}
+
+.msg-mkdn-container.font-size-message {
+  font-family: var(--hm-font) !important;
+  color: var(--hm-ink) !important;
+  line-height: 1.7 !important;
+}
+
+/*
+////////////////////////////////////////////////////////////////////////////////
+// 9. AVATAR STYLING
+////////////////////////////////////////////////////////////////////////////////
+*/
+
+/* Avatar container — glowing border */
+.ant-ribbon-wrapper [class*=ant-image] {
+  position: relative;
+  overflow: visible;
+  border-radius: 12px;
+  border: 2px solid rgba(199, 125, 255, 0.6);
+  background: transparent;
+  box-shadow:
+    0 0 20px rgba(199, 125, 255, 0.4),
+    0 0 40px rgba(199, 125, 255, 0.15),
+    0 8px 24px rgba(0, 0, 0, 0.4);
+}
+
+/* Online indicator on avatar */
+.ant-ribbon-wrapper [class*=ant-image]::before {
+  content: "✦ Online";
+  position: absolute;
+  bottom: -8px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(12, 14, 26, 0.9);
+  color: var(--hm-accent);
+  font-family: var(--hm-font);
+  font-size: 10px;
+  font-weight: 700;
+  padding: 3px 10px;
+  border-radius: 10px;
+  border: 1px solid rgba(199, 125, 255, 0.4);
+  text-shadow: 0 0 6px rgba(199, 125, 255, 0.6);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
+  z-index: 10;
+  white-space: nowrap;
+}
+
+/* Image hover effect */
+.ant-col.text-left [class*=ant-image] .ant-image-img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+  transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+.ant-col.text-left [class*=ant-image]:hover .ant-image-img {
+  transform: scale(1.04);
+  filter: brightness(1.1) saturate(1.1);
+}
+
+/* Hide image mask overlay */
+.ant-col.text-left [class*=ant-image] .ant-image-mask,
+.ant-col.text-left [class*=ant-image] .ant-image-mask-info {
+  display: none !important;
+}
+
+/*
+////////////////////////////////////////////////////////////////////////////////
+// 10. COLLAPSE / ACCORDION
+////////////////////////////////////////////////////////////////////////////////
+*/
+.ant-collapse {
+  border: none !important;
+  background: rgba(255, 255, 255, 0.03) !important;
+  border-radius: 12px !important;
+}
+
+.ant-collapse-item {
+  border-bottom: none !important;
+}
+
+.ant-collapse-content.ant-collapse-content-active {
+  background: linear-gradient(to right, rgba(15, 18, 35, 0.7), rgba(15, 18, 35, 0.3)) !important;
+  border: none !important;
+  backdrop-filter: blur(8px) !important;
+  -webkit-backdrop-filter: blur(8px) !important;
+  border-radius: 0 0 12px 12px !important;
+}
+
+/*
+////////////////////////////////////////////////////////////////////////////////
+// 11. FOOTER HIDE
+////////////////////////////////////////////////////////////////////////////////
+*/
+.ant-layout-footer {
+  display: none !important;
+}
+
+/*
+////////////////////////////////////////////////////////////////////////////////
+// 12. RIBBON HIDE (NSFW badge on cards)
+////////////////////////////////////////////////////////////////////////////////
+*/
+.ant-ribbon.ant-ribbon-placement-end {
+  display: none !important;
+}
+
+/*
+////////////////////////////////////////////////////////////////////////////////
+// 13. SCROLLBAR CUSTOMIZATION
+////////////////////////////////////////////////////////////////////////////////
+*/
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(12, 14, 26, 0.6);
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(199, 125, 255, 0.3);
+  border-radius: 4px;
+  border: 1px solid rgba(199, 125, 255, 0.1);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(199, 125, 255, 0.5);
+}
+
+/*
+////////////////////////////////////////////////////////////////////////////////
+// 14. ANIMATIONS & KEYFRAMES
+////////////////////////////////////////////////////////////////////////////////
+*/
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes softGlow {
+  0%, 100% {
+    box-shadow: 0 0 8px rgba(199, 125, 255, 0.3);
+  }
+  50% {
+    box-shadow: 0 0 20px rgba(199, 125, 255, 0.6);
+  }
+}
+
+@keyframes accentPulse {
+  0%, 100% {
+    text-shadow: 0 0 5px rgba(199, 125, 255, 0.2);
+  }
+  50% {
+    text-shadow: 0 0 18px rgba(199, 125, 255, 0.7);
+  }
+}
+
+/*
+////////////////////////////////////////////////////////////////////////////////
+// 15. CUSTOM SECTION CLASSES (for Creator Notes HTML)
+////////////////////////////////////////////////////////////////////////////////
+*/
+
+/* Main wrapper */
+.hm-sec {
+  --ink: #e4e0f0;
+  --muted: #9a95b0;
+  --accent: var(--hm-accent);
+  font-family: var(--hm-font) !important;
+  position: relative;
+  overflow: visible !important;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.4);
+}
+
+.hm-sec * {
+  box-sizing: border-box;
+}
+
+.hm-wrap {
+  width: 100%;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 12px;
+}
+
+/* Title */
+.hm-title {
+  font-family: var(--hm-font) !important;
+  font-size: clamp(36px, 6vw, 72px) !important;
+  line-height: 1.1 !important;
+  font-weight: 300 !important;
+  color: #fff !important;
+  margin: 0 0 12px !important;
+  letter-spacing: -0.02em !important;
+  text-shadow:
+    0 0 20px rgba(199, 125, 255, 0.3),
+    0 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+/* Subtitle */
+.hm-subtitle {
+  font-family: var(--hm-font) !important;
+  font-weight: 600 !important;
+  font-size: 1em !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.12em !important;
+  color: var(--hm-accent) !important;
+  margin-bottom: 20px !important;
+  display: block !important;
+}
+
+/* Description box — glass panel */
+.hm-tagline {
+  font-family: var(--hm-font) !important;
+  font-size: clamp(13px, 1.3vw, 15px) !important;
+  line-height: 1.65 !important;
+  color: var(--hm-ink) !important;
+  background: var(--hm-glass-strong) !important;
+  backdrop-filter: blur(12px) !important;
+  -webkit-backdrop-filter: blur(12px) !important;
+  border: var(--hm-glass-border) !important;
+  border-radius: 12px;
+  padding: 20px 24px;
+  margin: 16px 0;
+  box-shadow: var(--hm-shadow);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Glass panel */
+.hm-panel {
+  background: var(--hm-glass) !important;
+  backdrop-filter: blur(12px) !important;
+  -webkit-backdrop-filter: blur(12px) !important;
+  border: var(--hm-glass-border) !important;
+  border-radius: 12px;
+  padding: clamp(16px, 2vw, 24px);
+  box-shadow: var(--hm-shadow), inset 0 1px 0 rgba(255, 255, 255, 0.06);
+  margin-bottom: 20px;
+}
+
+/* Note text */
+.hm-note {
+  font-family: var(--hm-font-mono) !important;
+  font-size: 0.85em !important;
+  color: var(--hm-muted) !important;
+  line-height: 1.5;
+}
+
+/* Section header */
+.hm-meta-hdr {
+  padding: 8px 0;
+  font-weight: 700;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--hm-accent);
+}
+
+/* Quote block */
+.hm-quote {
+  display: block;
+  margin: 20px 0;
+  padding: 14px 16px 14px 48px;
+  background: linear-gradient(90deg, rgba(199, 125, 255, 0.08), transparent);
+  color: var(--hm-ink);
+  font-style: italic;
+  font-family: var(--hm-font);
+  border-left: 3px solid var(--hm-accent);
+  border-radius: 0 10px 10px 0;
+  position: relative;
+}
+
+.hm-quote::before {
+  content: "\201C";
+  position: absolute;
+  left: 12px;
+  top: 6px;
+  font: 900 36px/1 sans-serif;
+  color: rgba(199, 125, 255, 0.2);
+}
+
+/* Credit */
+.hm-credit {
+  font-size: 11px;
+  color: var(--hm-muted);
+  margin-top: 16px;
+  text-align: center !important;
+}
+
+.hm-credit a {
+  color: var(--hm-accent) !important;
+  text-decoration: none;
+}
+
+.hm-credit a:hover {
+  text-decoration: underline;
+}
+
+/* Links inside sections */
+.hm-sec a {
+  color: var(--hm-accent-pink) !important;
+  text-decoration: none;
+  transition: opacity 0.15s;
+}
+
+.hm-sec a:hover {
+  opacity: 0.8;
+  text-decoration: underline;
+}
+
+/* Animated entrance */
+.hm-tagline,
+.hm-panel,
+.hm-quote {
+  animation: fadeInUp 0.8s cubic-bezier(0.25, 1, 0.5, 1) both;
+}
+
+.hm-tagline { animation-delay: 0.2s; }
+.hm-panel { animation-delay: 0.4s; }
+.hm-quote { animation-delay: 0.6s; }
+
+/*
+////////////////////////////////////////////////////////////////////////////////
+// 16. RESPONSIVE DESIGN
+////////////////////////////////////////////////////////////////////////////////
+*/
+@media (max-width: 768px) {
+  body::before {
+    background-size: auto 100vh;
+    background-position: top center;
+  }
+
+  .ant-card {
+    border-radius: 12px !important;
+  }
+
+  .hm-title {
+    font-size: clamp(28px, 8vw, 48px) !important;
+  }
+
+  .hm-tagline,
+  .hm-panel {
+    border-radius: 8px;
+    padding: 14px 16px;
+  }
+}
+
+@media (max-width: 480px) {
+  body::before {
+    opacity: 0.25;
+  }
+
+  .hm-wrap {
+    padding: 0 8px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation: none !important;
+    transition: none !important;
+  }
+}
+
+/*
+////////////////////////////////////////////////////////////////////////////////
+// 17. DROPDOWN MENU STYLING
+////////////////////////////////////////////////////////////////////////////////
+*/
+.ant-dropdown-menu-item {
+  font-family: var(--hm-font) !important;
+}
+
+.ant-dropdown-menu-item:hover {
+  background-color: rgba(199, 125, 255, 0.15) !important;
+}
+
+/*
+////////////////////////////////////////////////////////////////////////////////
+// 18. TOOLTIP HIDE (optional — cleaner look)
+////////////////////////////////////////////////////////////////////////////////
+*/
+.ant-tooltip {
+  display: none !important;
 }
