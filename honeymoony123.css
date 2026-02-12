@@ -1,14 +1,20 @@
-.bb-sec {
-  font-family: 'Georgia', serif;
+/* Fundo geral da página */
+body {
+    background-image: url("https://files.catbox.moe/981ir2.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
 }
 
-.bb-title {
-  font-size: 2rem;
-  letter-spacing: 1px;
-}
-
-.bb-card {
-  background: #111;
-  border-radius: 16px;
-  padding: 16px;
+/* Camada escura por cima para melhorar leitura */
+body::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.55);
+    z-index: -1;
 }
