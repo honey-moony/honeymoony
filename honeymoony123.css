@@ -1,3 +1,23 @@
-body {
-  filter: hue-rotate(180deg) !important;
+/* Glassmorphism Card Style */
+.ant-card {
+    background: rgba(20, 20, 30, 0.6)!important;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 15px!important;
+    transition: all 0.3s ease;
+}
+
+/* Neon Glow on Hover */
+.ant-card:hover {
+    box-shadow: 0 0 15px rgba(255, 105, 180, 0.6)!important; /* Hot Pink Glow */
+    border-color: rgba(255, 105, 180, 0.8)!important;
+    transform: translateY(-5px);
+}
+
+/* Rounded Buttons */
+.ant-btn {
+    border-radius: 20px!important;
+    background: linear-gradient(45deg, #ff69b4, #9370db);
+    border: none;
+    color: white;
 }
