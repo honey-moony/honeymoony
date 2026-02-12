@@ -1,4 +1,14 @@
+.bb-sec {
+  font-family: 'Georgia', serif;
+}
+
+.bb-title {
+  font-size: 2rem;
+  letter-spacing: 1px;
+}
+
 .bb-card {
-  background: red !important;
-  border-radius: 20px !important;
+  background: #111;
+  border-radius: 16px;
+  padding: 16px;
 }
