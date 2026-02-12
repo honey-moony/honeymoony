@@ -1,3 +1,4 @@
-body {
+.bb-card {
   background: red !important;
+  border-radius: 20px !important;
 }
