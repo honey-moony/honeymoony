@@ -1,27 +1,43 @@
-/* Efeito de Vidro e Bordas Redondas nas Cartas */
-.ant-card {
-    background: rgba(20, 20, 35, 0.7) !important; /* Fundo escuro transparente */
-    backdrop-filter: blur(10px) !important;       /* Desfoque atrás do vidro */
-    border: 1px solid rgba(255, 255, 255, 0.1) !important;
-    border-radius: 20px !important;               /* Bordas arredondadas */
-    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.5) !important;
-    transition: all 0.3s ease !important;
+:root {
+  --msn-glass: rgba(20, 35, 50, 0.65) !important;
+  --msn-glass-border: 1px solid rgba(255, 255, 255, 0.35) !important;
+  --msn-glow: 0 0 10px rgba(255, 105, 180, 0.6) !important;
+  --accent: hotpink !important;
 }
 
-/* Brilho Neon quando passa o mouse */
-.ant-card:hover {
-    box-shadow: 0 0 15px #ff00ff, 0 0 30px rgba(255, 0, 255, 0.4) !important; /* Brilho Rosa */
-    border-color: #ff00ff !important;
-    transform: translateY(-5px); /* Leve flutuação */
-}
-
-/* Arredondar Botões */
-.ant-btn {
-    border-radius: 15px !important;
-    border: none !important;
-}
-
-/* Tirar o fundo cinza padrão do site para a imagem aparecer */
+/* Remove fundos opacos para exibir a imagem de fundo */
 .ant-layout, .ant-layout-header, .ant-layout-footer, .ant-layout-content {
     background: transparent !important;
+}
+
+/* Aplica o efeito de vidro nas cartas de personagem */
+.ant-card {
+    background: var(--msn-glass) !important;
+    backdrop-filter: blur(12px) !important;
+    border: var(--msn-glass-border) !important;
+    border-radius: 12px !important;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4) !important;
+    transition: all .2s !important;
+}
+
+/* Brilho neon ao passar o mouse */
+.ant-card:hover {
+    box-shadow: 0 0 15px var(--accent), 0 0 30px rgba(255, 105, 180, 0.4) !important;
+    border-color: var(--accent) !important;
+    transform: translateY(-2px) !important;
+}
+
+/* Botões com gradiente e estilo de sistema operacional antigo */
+button.ant-btn.ant-btn-default {
+    background: linear-gradient(180deg, rgba(70, 70, 75, 0.95) 0%, rgba(55, 55, 60, 0.9) 30%, rgba(45, 45, 50, 0.92) 50%, rgba(35, 35, 40, 0.95) 100%) !important;
+    color: #e0e0e0 !important;
+    border: 1px solid rgba(0, 0, 0, 0.5) !important;
+    border-radius: 4px !important;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.8) !important;
+}
+
+button.ant-btn:hover {
+    filter: brightness(1.15) !important;
+    background: var(--accent) !important;
+    color: #fff !important;
 }
