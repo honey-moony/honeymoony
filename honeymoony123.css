@@ -15,10 +15,21 @@
 }
 
 /* =========================================
-   BACKGROUND IMAGE
+   BACKGROUND - OVERRIDE EVERYTHING
    ========================================= */
+body,
+body *[style*="background-image"],
+div[class*="chat-history"],
+.chat-container,
+.ant-layout,
+.ant-layout-content {
+    background-image: none !important;
+    background-color: transparent !important;
+}
+
 body {
     background-color: var(--yui-bg) !important;
+    position: relative !important;
 }
 
 body::before {
@@ -26,24 +37,11 @@ body::before {
     position: fixed !important;
     top: 0 !important;
     left: 0 !important;
-    width: 100% !important;
-    height: 100% !important;
-    background-image: url('https://files.catbox.moe/yyr2mj.webp') !important;
-    background-size: cover !important;
-    background-repeat: no-repeat !important;
-    background-position: center !important;
-    background-attachment: fixed !important;
-    z-index: 0 !important;
-    opacity: 0.15 !important;
+    width: 100vw !important;
+    height: 100vh !important;
+    background: linear-gradient(rgba(10, 10, 10, 0.75), rgba(10, 10, 10, 0.75)), url('https://files.catbox.moe/yyr2mj.webp') center/cover no-repeat fixed !important;
+    z-index: -1 !important;
     pointer-events: none !important;
-}
-
-.ant-layout,
-.ant-layout-content,
-div[class*="chat-history"],
-.chat-container {
-    background-color: transparent !important;
-    background: transparent !important;
 }
 
 /* =========================================
@@ -181,26 +179,26 @@ h4.ant-list-item-meta-title a {
 }
 
 /* =========================================
-   AVATAR - EXTRA LARGE (220px desktop, 100px mobile)
+   AVATAR - 320px desktop, 120px mobile
    ========================================= */
 .ant-list-item-meta-avatar {
     margin-top: 33px !important;
-    width: 220px !important;
-    min-width: 220px !important;
-    max-width: 220px !important;
+    width: 320px !important;
+    min-width: 320px !important;
+    max-width: 320px !important;
     flex-shrink: 0 !important;
 }
 
 .ant-list-item-meta-avatar img,
 .ant-list-item-meta-avatar .ant-avatar {
-    width: 220px !important;
-    min-width: 220px !important;
-    max-width: 220px !important;
+    width: 320px !important;
+    min-width: 320px !important;
+    max-width: 320px !important;
     height: auto !important;
     object-fit: cover !important;
     border-radius: var(--yui-radius) !important;
     border: 2px solid var(--yui-red) !important;
-    box-shadow: 0 0 15px var(--yui-red-glow), 0 0 30px rgba(186, 37, 49, 0.3), 0 4px 15px rgba(0, 0, 0, 0.4) !important;
+    box-shadow: 0 0 15px var(--yui-red-glow), 0 0 30px rgba(186, 37, 49, 0.3), 0 0 45px rgba(186, 37, 49, 0.15), 0 4px 15px rgba(0, 0, 0, 0.4) !important;
 }
 
 /* Kill avatar hover preview */
@@ -230,15 +228,15 @@ h4.ant-list-item-meta-title a {
 
 @media (max-width: 768px) {
     .ant-list-item-meta-avatar {
-        width: 100px !important;
-        min-width: 100px !important;
-        max-width: 100px !important;
+        width: 120px !important;
+        min-width: 120px !important;
+        max-width: 120px !important;
     }
     .ant-list-item-meta-avatar img,
     .ant-list-item-meta-avatar .ant-avatar {
-        width: 100px !important;
-        min-width: 100px !important;
-        max-width: 100px !important;
+        width: 120px !important;
+        min-width: 120px !important;
+        max-width: 120px !important;
     }
 }
 
