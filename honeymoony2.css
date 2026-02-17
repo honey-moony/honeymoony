@@ -18,30 +18,19 @@
    BACKGROUND - OVERRIDE EVERYTHING
    ========================================= */
 body,
-body *[style*="background-image"],
-div[class*="chat-history"],
-.chat-container,
 .ant-layout,
-.ant-layout-content {
+.ant-layout-content,
+div[class*="chat-history"],
+.chat-container {
+    background-color: #0a0a0a !important;
     background-image: none !important;
-    background-color: transparent !important;
 }
 
-body {
-    background-color: var(--yui-bg) !important;
-    position: relative !important;
-}
-
-body::before {
-    content: "" !important;
-    position: fixed !important;
-    top: 0 !important;
-    left: 0 !important;
-    width: 100vw !important;
-    height: 100vh !important;
-    background: linear-gradient(rgba(10, 10, 10, 0.75), rgba(10, 10, 10, 0.75)), url('https://files.catbox.moe/yyr2mj.webp') center/cover no-repeat fixed !important;
-    z-index: -1 !important;
-    pointer-events: none !important;
+#root > div > div > div:nth-child(2),
+.ant-layout:not(.ant-layout-has-sider) {
+    background: linear-gradient(rgba(10, 10, 10, 0.80), rgba(10, 10, 10, 0.80)),
+                url('https://files.catbox.moe/yyr2mj.webp') center/cover no-repeat fixed !important;
+    background-attachment: fixed !important;
 }
 
 /* =========================================
