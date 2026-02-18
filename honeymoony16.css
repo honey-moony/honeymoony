@@ -1,0 +1,101 @@
+/* --- FUNDO TOTALMENTE SEQUESTRADO E FIXADO --- */
+body, #root, .ant-layout, .ant-layout-header, .ant-layout-content, .ant-layout-footer, 
+.ant-menu, .ant-menu-dark, .ant-menu-root, div[class*="chat-history"], .chat-container, 
+main, section, .ant-list-item, .ant-list-item-meta {
+    background: transparent !important;
+    background-color: transparent !important;
+}
+
+/* O Segredo do Chub: Sequestramos a camada nativa de fundo do chat */
+div.abs-100-dvh {
+    background-image: url('https://files.catbox.moe/yyr2mj.webp') !important;
+    background-size: cover !important;
+    background-position: center !important;
+    background-repeat: no-repeat !important;
+    background-color: #050000 !important;
+    opacity: 1 !important;
+    z-index: 0 !important;
+}
+
+/* Limpeza de fundos residuais e sombras das mensagens nativas */
+.ant-list-item.alpha-background, .message-full {
+    background: transparent !important;
+    border: none !important;
+}
+
+/* --- AVATAR 320PX (TRAVADO E BLINDADO) --- */
+.ant-list-item-meta-avatar {
+    width: 320px !important;
+    min-width: 320px !important;
+    max-width: 320px !important;
+    flex: 0 0 320px !important; /* Força o tamanho contra o flexbox */
+    margin-top: 25px !important;
+    margin-right: 20px !important;
+}
+
+.ant-list-item-meta-avatar img, .ant-list-item-meta-avatar .ant-avatar {
+    width: 320px !important;
+    height: 480px !important;
+    object-fit: cover !important;
+    border-radius: 12px !important;
+    border: 1px solid rgba(255, 0, 0, 0.6) !important;
+    box-shadow: 0 8px 30px rgba(139, 0, 0, 0.6) !important;
+}
+
+/* --- BOLHA DE CHAT (VIDRO TEMPERADO VERMELHO) --- */
+.ant-list-item-meta-description {
+    position: relative !important;
+    background: rgba(15, 10, 10, 0.85) !important;
+    backdrop-filter: blur(16px) saturate(180%) !important;
+    -webkit-backdrop-filter: blur(16px) saturate(180%) !important;
+    padding: 22px 24px !important;
+    border-radius: 0 20px 20px 20px !important;
+    color: #f5f5f5 !important;
+    font-family: 'Inter', sans-serif !important;
+    font-size: 15.5px !important;
+    line-height: 1.6 !important;
+    border: 1px solid rgba(255, 0, 0, 0.2) !important;
+    border-left: 3px solid #ff0000 !important;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.6) !important;
+}
+
+/* --- NOME DA YUI (CALIGRAFIA COM NÉON) --- */
+.ant-list-item-meta-title, .ant-list-item-meta-title a {
+    font-family: 'Caveat', cursive !important;
+    font-size: 30px !important;
+    font-weight: 700 !important;
+    color: #ff3333 !important;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8), 0 0 12px rgba(255, 0, 0, 0.6) !important;
+    margin-bottom: 8px !important;
+    display: inline-block !important;
+    letter-spacing: 1px !important;
+}
+
+/* --- BARRA DE DIGITAÇÃO (INPUT) --- */
+.ant-layout-footer form, div.chat-input-container form {
+    background: rgba(15, 10, 10, 0.85) !important;
+    backdrop-filter: blur(20px) !important;
+    -webkit-backdrop-filter: blur(20px) !important;
+    border: 1px solid rgba(255, 0, 0, 0.4) !important;
+    border-radius: 24px !important;
+    box-shadow: 0 -5px 30px rgba(0, 0, 0, 0.7), 0 0 15px rgba(255, 0, 0, 0.1) !important;
+    padding: 10px 15px !important;
+}
+
+.ant-layout-footer textarea {
+    color: #fff !important;
+    font-size: 15px !important;
+}
+
+/* --- BOTÕES DE CONTROLE (SETA DE REGERAR/ETC) --- */
+button.message-control-buttons {
+    background: rgba(20, 0, 0, 0.8) !important;
+    border: 1px solid rgba(255, 0, 0, 0.5) !important;
+    color: #ff9999 !important;
+    backdrop-filter: blur(8px) !important;
+}
+
+button.message-control-buttons:hover {
+    color: #ff0000 !important;
+    box-shadow: 0 0 10px rgba(255, 0, 0, 0.5) !important;
+}
