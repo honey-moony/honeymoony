@@ -1,0 +1,91 @@
+/* --- FUNDO TOTAL E TRANSPARÊNCIA (ESTILO BUNNY) --- */
+html, body, #root, .ant-layout, .ant-layout-header, .ant-layout-content, .ant-layout-footer, 
+.ant-menu, .ant-menu-dark, .ant-menu-root, div[class*="chat-history"], .chat-container, 
+main, section, .ant-list-item, .ant-list-item-meta {
+    background-image: url('https://files.catbox.moe/yyr2mj.webp') !important;
+    background-size: cover !important;
+    background-repeat: no-repeat !important;
+    background-position: center center !important;
+    background-attachment: fixed !important;
+    background-color: transparent !important;
+}
+
+/* Limpeza de fundos cinzas e sombras do sistema */
+.ant-list-item.alpha-background, .message-full, .ant-list-item-meta-description {
+    background-color: transparent !important;
+    border: none !important;
+}
+
+/* --- AVATAR 320PX (ESTILO POSTER) --- */
+.ant-list-item-meta-avatar {
+    width: 320px !important;
+    min-width: 320px !important;
+    max-width: 320px !important;
+    flex: 0 0 320px !important;
+    margin-top: 25px !important;
+    margin-right: 20px !important;
+}
+
+.ant-list-item-meta-avatar img, .ant-list-item-meta-avatar .ant-avatar {
+    width: 320px !important;
+    height: 450px !important;
+    object-fit: cover !important;
+    border-radius: 15px !important;
+    /* Borda Vermelha com Brilho */
+    border: 2px solid #ff0000 !important;
+    box-shadow: 0 0 25px rgba(255, 0, 0, 0.4), inset 0 0 15px rgba(255, 0, 0, 0.2) !important;
+}
+
+/* --- BOLHA DE CHAT (VIDRO E DEGRADÊ) --- */
+.ant-list-item-meta-description {
+    position: relative !important;
+    /* Fundo escuro levemente transparente */
+    background: rgba(10, 10, 15, 0.85) !important;
+    backdrop-filter: blur(12px) !important;
+    -webkit-backdrop-filter: blur(12px) !important;
+    padding: 20px !important;
+    border-radius: 0 20px 20px 20px !important;
+    color: #f0f0f0 !important;
+    font-family: 'Inter', sans-serif !important;
+    font-size: 15px !important;
+    line-height: 1.7 !important;
+    /* Borda em Degradê Vermelho */
+    border: 1px solid transparent !important;
+    background-clip: padding-box, border-box !important;
+    background-origin: padding-box, border-box !important;
+    background-image: linear-gradient(rgba(10, 10, 15, 0.9), rgba(10, 10, 15, 0.9)), 
+                      linear-gradient(135deg, #ff0000 0%, #660000 100%) !important;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5) !important;
+}
+
+/* --- NOME DO PERSONAGEM --- */
+.ant-list-item-meta-title, .ant-list-item-meta-title a {
+    font-family: 'Caveat', cursive !important;
+    font-size: 28px !important;
+    font-weight: 700 !important;
+    color: #ff4d4d !important;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8), 0 0 10px rgba(255, 0, 0, 0.5) !important;
+    margin-bottom: 8px !important;
+    display: block !important;
+}
+
+/* --- BARRA DE INPUT --- */
+.ant-layout-footer form, div.chat-input-container form {
+    background: rgba(10, 10, 15, 0.9) !important;
+    backdrop-filter: blur(20px) !important;
+    border: 1px solid #ff0000 !important;
+    border-radius: 15px !important;
+    box-shadow: 0 -5px 25px rgba(255, 0, 0, 0.2) !important;
+}
+
+.ant-layout-footer textarea {
+    color: #fff !important;
+    font-family: 'Inter', sans-serif !important;
+}
+
+/* Botões de controle (Setas de regeneração) */
+button.message-control-buttons {
+    background: #1a0000 !important;
+    border: 1px solid #ff0000 !important;
+    color: #fff !important;
+}
