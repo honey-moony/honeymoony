@@ -9,7 +9,6 @@ main, section, .ant-list-item, .ant-list-item-meta {
 }
 
 div.abs-100-dvh {
-    /* Nova imagem de fundo da Alexis */
     background-image: url('https://files.catbox.moe/6t7inj.webp') !important;
     background-size: cover !important;
     background-position: center !important;
@@ -152,7 +151,7 @@ button.message-control-buttons:hover,
    RESPONSIVIDADE (ATIVA AUTOMATICAMENTE NO MÓVEL)
    ======================================================= */
 @media (max-width: 768px) {
-    /* Reduz o Avatar para o tamanho normal (50px) e tira as margens exageradas */
+    /* Reduz o Avatar para o tamanho normal (50px) */
     .ant-list-item-meta-avatar {
         width: 50px !important;
         min-width: 50px !important;
@@ -164,17 +163,17 @@ button.message-control-buttons:hover,
     
     .ant-list-item-meta-avatar img, .ant-list-item-meta-avatar .ant-avatar {
         width: 50px !important;
-        height: 50px !important; /* Fica quadrado/redondo para poupar espaço */
+        height: 50px !important;
         border-radius: 10px !important;
     }
     
-    /* Retira o recuo de 200px dos botões para que eles caibam no ecrã */
+    /* Retira o recuo de 200px dos botões e empurra-os para a DIREITA */
     div.message-control-buttons {
         padding-right: 0px !important;
-        justify-content: center !important; /* Centra os botões no telemóvel */
+        justify-content: flex-end !important; /* Move os botões para longe da foto */
     }
     
-    /* Diminui a fonte do nome e o padding da bolha para a mensagem respirar */
+    /* Diminui a fonte do nome e o padding da bolha */
     .ant-list-item-meta-title, .ant-list-item-meta-title a {
         font-size: 20px !important;
         margin-bottom: 6px !important;
