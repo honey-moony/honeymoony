@@ -49,7 +49,7 @@ div.abs-100-dvh {
     transition: all 0.3s ease !important;
 }
 
-/* --- A ÂNCORA PERFEITA --- */
+/* --- A ÂNCORA E BOLHA --- */
 .ant-list-item-meta-content {
     position: relative !important;
     overflow: visible !important;
@@ -101,12 +101,7 @@ div.abs-100-dvh {
     padding: 10px 15px !important;
 }
 
-.ant-layout-footer textarea {
-    color: #fff !important;
-    font-size: 15px !important;
-}
-
-/* --- BOTÕES DE CONTROLE DA MENSAGEM (DESKTOP) --- */
+/* --- BOTÕES DE CONTROLE (DESKTOP) --- */
 div.message-control-buttons {
     display: flex !important;
     flex-direction: row !important;
@@ -116,7 +111,7 @@ div.message-control-buttons {
     margin-top: 15px !important;
     width: 100% !important;
     box-sizing: border-box !important;
-    padding-right: 200px !important;
+    padding-right: 200px !important; /* Empurra para a esquerda no PC */
 }
 
 button.message-control-buttons, 
@@ -147,10 +142,9 @@ button.message-control-buttons:hover,
 }
 
 /* =======================================================
-   RESPONSIVIDADE (ATIVA AUTOMATICAMENTE NO MÓVEL)
+   RESPONSIVIDADE (MOBILE)
    ======================================================= */
 @media (max-width: 768px) {
-    /* Reduz o Avatar */
     .ant-list-item-meta-avatar {
         width: 45px !important;
         min-width: 45px !important;
@@ -166,43 +160,29 @@ button.message-control-buttons:hover,
         border-radius: 8px !important;
     }
     
-    /* RESTAURA O NOME */
     .ant-list-item-meta-title, .ant-list-item-meta-title a {
         font-size: 20px !important;
         margin-bottom: 4px !important;
-        max-width: 100% !important; 
-        display: inline-block !important;
-        white-space: normal !important;
-    }
-    
-    .ant-list-item-meta-description {
-        padding: 14px 16px !important;
-        margin-top: 5px !important;
     }
 
-    /* BOTÕES NO MOBILE: Ficam em baixo do texto, alinhados à direita */
+    /* FORÇA OS BOTÕES A FICAREM LADO A LADO NO MOBILE */
     div.message-control-buttons, 
     .message-full > div:has(> button.message-control-buttons) {
         position: relative !important;
-        top: auto !important;
-        right: auto !important;
-        padding-right: 0px !important; /* Desliga o recuo de 200px do PC */
+        padding-right: 0px !important; /* Remove o recuo de 200px do PC */
         margin-top: 10px !important;
-        width: 100% !important;
         display: flex !important;
+        flex-direction: row !important; /* Garante alinhamento horizontal */
+        flex-wrap: wrap !important; /* Permite quebrar se o ecrã for mini, mas mantém a linha */
         justify-content: flex-end !important;
-        transform: none !important;
-        flex-wrap: wrap !important;
+        width: 100% !important;
     }
 
-    /* Restaura o tamanho e margens dos botões no mobile */
     button.message-control-buttons, 
     .message-full button.ant-btn-text,
     .message-full button.ant-btn-circle {
         height: 30px !important;
         min-width: 30px !important;
-        padding: 0 6px !important;
         margin-left: 6px !important;
-        transform: none !important;
     }
 }
