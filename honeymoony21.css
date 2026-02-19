@@ -25,8 +25,7 @@ div.abs-100-dvh {
     border: none !important;
 }
 
-/* --- O TRUQUE PARA SALVAR OS BOTÕES --- */
-/* Empurra a última mensagem do chat muito para cima, libertando-a da caixa de texto */
+/* --- MARGEM EXTRA NO FIM DO CHAT --- */
 .ant-list-item:last-child {
     margin-bottom: 150px !important;
 }
@@ -65,10 +64,10 @@ div.abs-100-dvh {
     border: 1px solid rgba(255, 0, 0, 0.2) !important;
     border-left: 3px solid #ff0000 !important;
     box-shadow: 0 8px 24px rgba(0, 0, 0, 0.6) !important;
-    overflow: visible !important;
+    overflow: visible !important; /* Garante que os botões fora da bolha não sejam cortados */
 }
 
-/* --- NOME DA PERSONAGEM (CINZEL) --- */
+/* --- NOME DA PERSONAGEM (CINZEL - ELEGANTE E MADURO) --- */
 .ant-list-item-meta-title, .ant-list-item-meta-title a {
     font-family: 'Cinzel', serif !important;
     font-size: 26px !important;
@@ -97,24 +96,26 @@ div.abs-100-dvh {
     font-size: 15px !important;
 }
 
-/* --- BOTÕES DE CONTROLE DA MENSAGEM --- */
+/* --- BOTÕES AO LADO DO NOME --- */
 div.message-control-buttons {
+    position: absolute !important;
+    top: -46px !important; /* Puxa a caixa para cima, na mesma linha do nome */
+    right: 0px !important; /* Alinha no canto direito da bolha */
     display: flex !important;
-    flex-wrap: wrap !important;
+    flex-direction: row !important;
     gap: 8px !important;
     justify-content: flex-end !important;
-    margin-top: 15px !important;
-    width: 100% !important;
-    position: relative !important;
-    z-index: 9999 !important;
+    margin: 0 !important;
+    width: auto !important;
+    z-index: 100 !important;
 }
 
 button.message-control-buttons, 
 .message-full button.ant-btn-text,
 .message-full button.ant-btn-circle {
-    position: static !important;
-    background: rgba(20, 0, 0, 0.6) !important;
-    border: 1px solid rgba(255, 0, 0, 0.3) !important;
+    position: relative !important;
+    background: rgba(20, 0, 0, 0.8) !important;
+    border: 1px solid rgba(255, 0, 0, 0.4) !important;
     color: #ff9999 !important;
     backdrop-filter: blur(8px) !important;
     border-radius: 8px !important;
@@ -133,6 +134,6 @@ button.message-control-buttons:hover,
     color: #ff0000 !important;
     border-color: #ff0000 !important;
     box-shadow: 0 0 12px rgba(255, 0, 0, 0.6) !important;
-    background: rgba(40, 0, 0, 0.8) !important;
+    background: rgba(40, 0, 0, 0.9) !important;
     transform: translateY(-2px) !important;
 }
