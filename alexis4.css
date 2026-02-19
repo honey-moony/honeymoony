@@ -1,0 +1,47 @@
+/* =======================================================
+   RESPONSIVIDADE (ATIVA AUTOMATICAMENTE NO MÓVEL)
+   ======================================================= */
+@media (max-width: 768px) {
+    /* Reduz o Avatar para o tamanho normal e poupa espaço */
+    .ant-list-item-meta-avatar {
+        width: 45px !important;
+        min-width: 45px !important;
+        max-width: 45px !important;
+        flex: 0 0 45px !important;
+        margin-top: 0px !important;
+        margin-right: 10px !important;
+    }
+    
+    .ant-list-item-meta-avatar img, .ant-list-item-meta-avatar .ant-avatar {
+        width: 45px !important;
+        height: 45px !important;
+        border-radius: 8px !important;
+    }
+    
+    /* RESET ABSOLUTO DOS BOTÕES: Mata qualquer regra do desktop */
+    div.message-control-buttons, 
+    .message-full > div:has(> button.message-control-buttons) {
+        position: relative !important;
+        top: auto !important;
+        right: auto !important;
+        bottom: auto !important;
+        left: auto !important;
+        padding: 0px !important; 
+        margin: 12px 0 0 0 !important;
+        justify-content: flex-end !important;
+        align-items: center !important;
+        width: 100% !important;
+        display: flex !important;
+        transform: none !important;
+    }
+    
+    /* Ajustes finos para a leitura no telemóvel */
+    .ant-list-item-meta-title, .ant-list-item-meta-title a {
+        font-size: 18px !important;
+        margin-bottom: 4px !important;
+    }
+    
+    .ant-list-item-meta-description {
+        padding: 14px 16px !important;
+    }
+}
