@@ -49,15 +49,24 @@ div.abs-100-dvh {
     box-shadow: 0 8px 30px rgba(139, 0, 0, 0.6) !important;
 }
 
-/* --- BOLHA DE CHAT (VIDRO TEMPERADO VERMELHO) --- */
-/* Forçamos os contentores a não cortarem os botões flutuantes */
-.ant-list-item-meta, .ant-list-item-meta-content {
+/* --- ANTI-CORTE: O SEGREDO PARA OS BOTÕES NÃO SUMIREM --- */
+.ant-list-item, 
+.ant-list-item-meta, 
+.ant-list-item-meta-content, 
+.ant-list-item-meta-description, 
+.message-full {
     overflow: visible !important;
-    position: relative !important;
+    contain: none !important;
 }
 
+/* Remove a âncora do texto e coloca-a APENAS na bolha vermelha */
+.message-full {
+    position: static !important; 
+}
+
+/* --- BOLHA DE CHAT (VIDRO TEMPERADO VERMELHO) --- */
 .ant-list-item-meta-description {
-    position: relative !important;
+    position: relative !important; /* A âncora verdadeira para os botões */
     background: rgba(15, 10, 10, 0.85) !important;
     backdrop-filter: blur(16px) saturate(180%) !important;
     -webkit-backdrop-filter: blur(16px) saturate(180%) !important;
@@ -70,7 +79,6 @@ div.abs-100-dvh {
     border: 1px solid rgba(255, 0, 0, 0.2) !important;
     border-left: 3px solid #ff0000 !important;
     box-shadow: 0 8px 24px rgba(0, 0, 0, 0.6) !important;
-    overflow: visible !important;
 }
 
 /* --- NOME DA PERSONAGEM (CINZEL - ELEGANTE E MADURO) --- */
@@ -102,11 +110,11 @@ div.abs-100-dvh {
     font-size: 15px !important;
 }
 
-/* --- BOTÕES AO LADO DO NOME (O RESGATE) --- */
-div.message-control-buttons, 
-div:has(> button.message-control-buttons):not(.message-full) {
+/* --- BOTÕES AO LADO DO NOME --- */
+div:has(> button.message-control-buttons), 
+div.message-control-buttons {
     position: absolute !important;
-    top: -42px !important; /* Altura exata para alinhar com o nome da Yui */
+    top: -46px !important; /* Altura perfeita para estar lado a lado com o nome */
     right: 0px !important;
     display: flex !important;
     flex-direction: row !important;
@@ -114,9 +122,12 @@ div:has(> button.message-control-buttons):not(.message-full) {
     justify-content: flex-end !important;
     margin: 0 !important;
     width: auto !important;
-    z-index: 99999 !important; /* Força os botões para a frente de tudo */
+    z-index: 99999 !important;
+    background: transparent !important;
+    border: none !important;
     opacity: 1 !important;
     visibility: visible !important;
+    pointer-events: auto !important;
 }
 
 button.message-control-buttons, 
