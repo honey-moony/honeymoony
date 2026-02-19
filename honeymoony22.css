@@ -25,7 +25,7 @@ div.abs-100-dvh {
     border: none !important;
 }
 
-/* --- MARGEM EXTRA NO FIM DO CHAT --- */
+/* Margem extra no fim do chat */
 .ant-list-item:last-child {
     margin-bottom: 150px !important;
 }
@@ -50,6 +50,12 @@ div.abs-100-dvh {
 }
 
 /* --- BOLHA DE CHAT (VIDRO TEMPERADO VERMELHO) --- */
+/* Forçamos os contentores a não cortarem os botões flutuantes */
+.ant-list-item-meta, .ant-list-item-meta-content {
+    overflow: visible !important;
+    position: relative !important;
+}
+
 .ant-list-item-meta-description {
     position: relative !important;
     background: rgba(15, 10, 10, 0.85) !important;
@@ -64,7 +70,7 @@ div.abs-100-dvh {
     border: 1px solid rgba(255, 0, 0, 0.2) !important;
     border-left: 3px solid #ff0000 !important;
     box-shadow: 0 8px 24px rgba(0, 0, 0, 0.6) !important;
-    overflow: visible !important; /* Garante que os botões fora da bolha não sejam cortados */
+    overflow: visible !important;
 }
 
 /* --- NOME DA PERSONAGEM (CINZEL - ELEGANTE E MADURO) --- */
@@ -96,18 +102,21 @@ div.abs-100-dvh {
     font-size: 15px !important;
 }
 
-/* --- BOTÕES AO LADO DO NOME --- */
-div.message-control-buttons {
+/* --- BOTÕES AO LADO DO NOME (O RESGATE) --- */
+div.message-control-buttons, 
+div:has(> button.message-control-buttons):not(.message-full) {
     position: absolute !important;
-    top: -46px !important; /* Puxa a caixa para cima, na mesma linha do nome */
-    right: 0px !important; /* Alinha no canto direito da bolha */
+    top: -42px !important; /* Altura exata para alinhar com o nome da Yui */
+    right: 0px !important;
     display: flex !important;
     flex-direction: row !important;
     gap: 8px !important;
     justify-content: flex-end !important;
     margin: 0 !important;
     width: auto !important;
-    z-index: 100 !important;
+    z-index: 99999 !important; /* Força os botões para a frente de tudo */
+    opacity: 1 !important;
+    visibility: visible !important;
 }
 
 button.message-control-buttons, 
@@ -126,6 +135,8 @@ button.message-control-buttons,
     min-width: 32px !important;
     padding: 0 8px !important;
     transition: all 0.2s ease !important;
+    opacity: 1 !important;
+    visibility: visible !important;
 }
 
 button.message-control-buttons:hover, 
