@@ -104,12 +104,12 @@ div.abs-100-dvh {
     font-size: 15px !important;
 }
 
-/* --- OS BOTÕES RESGATADOS (AFASTADOS 50PX PARA A ESQUERDA) --- */
+/* --- OS BOTÕES RESGATADOS (AFASTADOS 250PX PARA A ESQUERDA) --- */
 .message-full > div:has(> button.message-control-buttons), 
 div.message-control-buttons {
     position: absolute !important;
     top: 0px !important; 
-    right: 50px !important; /* Movidos 50px para a esquerda */
+    right: 250px !important; /* Movidos 250px para a esquerda no total */
     display: flex !important;
     flex-direction: row !important;
     gap: 8px !important;
