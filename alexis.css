@@ -1,0 +1,147 @@
+@import url('https://fonts.googleapis.com/css2?family=Bungee&family=Outfit:wght@300;400;600&display=swap');
+
+/* --- FUNDO TOTALMENTE SEQUESTRADO E FIXADO --- */
+body, #root, .ant-layout, .ant-layout-header, .ant-layout-content, .ant-layout-footer, 
+.ant-menu, .ant-menu-dark, .ant-menu-root, div[class*="chat-history"], .chat-container, 
+main, section, .ant-list-item, .ant-list-item-meta {
+    background: transparent !important;
+    background-color: transparent !important;
+}
+
+div.abs-100-dvh {
+    /* Imagem de fundo da Alexis (Pode alterar o link se quiser outra) */
+    background-image: url('https://files.catbox.moe/3s7o5k.webp') !important;
+    background-size: cover !important;
+    background-position: center !important;
+    background-repeat: no-repeat !important;
+    background-color: #050505 !important;
+    opacity: 1 !important;
+    z-index: 0 !important;
+}
+
+.ant-list-item.alpha-background, .message-full {
+    background: transparent !important;
+    border: none !important;
+}
+
+/* Espaço extra no fim do chat */
+.ant-list-item:last-child {
+    margin-bottom: 150px !important;
+}
+
+/* --- AVATAR 320PX (TRAVADO) --- */
+.ant-list-item-meta-avatar {
+    width: 320px !important;
+    min-width: 320px !important;
+    max-width: 320px !important;
+    flex: 0 0 320px !important;
+    margin-top: 25px !important;
+    margin-right: 20px !important;
+}
+
+.ant-list-item-meta-avatar img, .ant-list-item-meta-avatar .ant-avatar {
+    width: 320px !important;
+    height: 480px !important;
+    object-fit: cover !important;
+    border-radius: 12px !important;
+    border: 1px solid rgba(255, 159, 0, 0.6) !important;
+    box-shadow: 0 8px 30px rgba(255, 159, 0, 0.4) !important;
+}
+
+/* --- A ÂNCORA PERFEITA --- */
+.ant-list-item-meta-content {
+    position: relative !important;
+    overflow: visible !important;
+}
+
+.ant-list-item-meta-description, .message-full {
+    position: static !important;
+    overflow: visible !important;
+    contain: none !important;
+}
+
+/* --- BOLHA DE CHAT (VIDRO TEMPERADO LARANJA) --- */
+.ant-list-item-meta-description {
+    background: rgba(15, 10, 5, 0.85) !important;
+    backdrop-filter: blur(16px) saturate(180%) !important;
+    -webkit-backdrop-filter: blur(16px) saturate(180%) !important;
+    padding: 22px 24px !important;
+    border-radius: 0 20px 20px 20px !important;
+    color: #f5f5f5 !important;
+    font-family: 'Outfit', sans-serif !important;
+    font-size: 15.5px !important;
+    line-height: 1.6 !important;
+    border: 1px solid rgba(255, 159, 0, 0.2) !important;
+    border-left: 3px solid #FF9F00 !important;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.6) !important;
+}
+
+/* --- NOME DA PERSONAGEM (BUNGEE) --- */
+.ant-list-item-meta-title, .ant-list-item-meta-title a {
+    font-family: 'Bungee', cursive !important;
+    font-size: 26px !important;
+    color: #FF9F00 !important;
+    text-transform: uppercase !important;
+    letter-spacing: 2px !important;
+    text-shadow: 0 0 15px rgba(255, 159, 0, 0.5), 2px 2px 4px rgba(0, 0, 0, 0.8) !important;
+    margin-bottom: 12px !important;
+    display: inline-block !important;
+    font-weight: normal !important;
+}
+
+/* --- BARRA DE DIGITAÇÃO (INPUT) --- */
+.ant-layout-footer form, div.chat-input-container form {
+    background: rgba(15, 10, 5, 0.85) !important;
+    backdrop-filter: blur(20px) !important;
+    -webkit-backdrop-filter: blur(20px) !important;
+    border: 1px solid rgba(255, 159, 0, 0.4) !important;
+    border-radius: 24px !important;
+    box-shadow: 0 -5px 30px rgba(0, 0, 0, 0.7), 0 0 15px rgba(255, 159, 0, 0.1) !important;
+    padding: 10px 15px !important;
+}
+
+.ant-layout-footer textarea {
+    color: #fff !important;
+    font-family: 'Outfit', sans-serif !important;
+    font-size: 15px !important;
+}
+
+/* --- BOTÕES DE CONTROLE DA MENSAGEM (RECUADOS 200PX) --- */
+div.message-control-buttons {
+    display: flex !important;
+    flex-direction: row !important;
+    flex-wrap: nowrap !important;
+    gap: 8px !important;
+    justify-content: flex-end !important;
+    margin-top: 15px !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+    padding-right: 200px !important;
+}
+
+button.message-control-buttons, 
+.message-full button.ant-btn-text,
+.message-full button.ant-btn-circle {
+    background: rgba(20, 10, 0, 0.6) !important;
+    border: 1px solid rgba(255, 159, 0, 0.3) !important;
+    color: #ffcc80 !important;
+    backdrop-filter: blur(8px) !important;
+    border-radius: 8px !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    height: 32px !important;
+    min-width: 32px !important;
+    padding: 0 8px !important;
+    transition: all 0.2s ease !important;
+}
+
+button.message-control-buttons:hover, 
+.message-full button.ant-btn-text:hover,
+.message-full button.ant-btn-circle:hover {
+    color: #FF9F00 !important;
+    border-color: #FF9F00 !important;
+    box-shadow: 0 0 12px rgba(255, 159, 0, 0.6) !important;
+    background: rgba(40, 20, 0, 0.8) !important;
+    transform: translateY(-2px) !important;
+}
