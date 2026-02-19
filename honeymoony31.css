@@ -92,15 +92,17 @@ div.abs-100-dvh {
     font-size: 15px !important;
 }
 
-/* --- BOTÕES DE CONTROLE DA MENSAGEM --- */
-/* Usa o comportamento natural do Flexbox do site para não quebrar o layout */
+/* --- BOTÕES DE CONTROLE DA MENSAGEM (AJUSTE FINO) --- */
 div.message-control-buttons {
     display: flex !important;
-    flex-wrap: wrap !important;
+    flex-direction: row !important; /* Garante que ficam sempre numa linha horizontal */
+    flex-wrap: nowrap !important; /* Impede que se empilhem */
     gap: 8px !important;
-    justify-content: flex-end !important;
+    justify-content: flex-end !important; /* Começam da direita para a esquerda */
     margin-top: 15px !important;
     width: 100% !important;
+    box-sizing: border-box !important;
+    padding-right: 200px !important; /* A "parede" invisível que os empurra 200px para a esquerda */
 }
 
 button.message-control-buttons, 
