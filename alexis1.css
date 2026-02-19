@@ -9,8 +9,8 @@ main, section, .ant-list-item, .ant-list-item-meta {
 }
 
 div.abs-100-dvh {
-    /* Imagem de fundo da Alexis (Pode alterar o link se quiser outra) */
-    background-image: url('https://files.catbox.moe/3s7o5k.webp') !important;
+    /* Nova imagem de fundo da Alexis */
+    background-image: url('https://files.catbox.moe/6t7inj.webp') !important;
     background-size: cover !important;
     background-position: center !important;
     background-repeat: no-repeat !important;
@@ -29,7 +29,7 @@ div.abs-100-dvh {
     margin-bottom: 150px !important;
 }
 
-/* --- AVATAR 320PX (TRAVADO) --- */
+/* --- AVATAR (TRAVADO PARA DESKTOP - 320PX) --- */
 .ant-list-item-meta-avatar {
     width: 320px !important;
     min-width: 320px !important;
@@ -37,6 +37,7 @@ div.abs-100-dvh {
     flex: 0 0 320px !important;
     margin-top: 25px !important;
     margin-right: 20px !important;
+    transition: all 0.3s ease !important;
 }
 
 .ant-list-item-meta-avatar img, .ant-list-item-meta-avatar .ant-avatar {
@@ -46,6 +47,7 @@ div.abs-100-dvh {
     border-radius: 12px !important;
     border: 1px solid rgba(255, 159, 0, 0.6) !important;
     box-shadow: 0 8px 30px rgba(255, 159, 0, 0.4) !important;
+    transition: all 0.3s ease !important;
 }
 
 /* --- A ÂNCORA PERFEITA --- */
@@ -106,7 +108,7 @@ div.abs-100-dvh {
     font-size: 15px !important;
 }
 
-/* --- BOTÕES DE CONTROLE DA MENSAGEM (RECUADOS 200PX) --- */
+/* --- BOTÕES DE CONTROLE DA MENSAGEM --- */
 div.message-control-buttons {
     display: flex !important;
     flex-direction: row !important;
@@ -144,4 +146,41 @@ button.message-control-buttons:hover,
     box-shadow: 0 0 12px rgba(255, 159, 0, 0.6) !important;
     background: rgba(40, 20, 0, 0.8) !important;
     transform: translateY(-2px) !important;
+}
+
+/* =======================================================
+   RESPONSIVIDADE (ATIVA AUTOMATICAMENTE NO MÓVEL)
+   ======================================================= */
+@media (max-width: 768px) {
+    /* Reduz o Avatar para o tamanho normal (50px) e tira as margens exageradas */
+    .ant-list-item-meta-avatar {
+        width: 50px !important;
+        min-width: 50px !important;
+        max-width: 50px !important;
+        flex: 0 0 50px !important;
+        margin-top: 0px !important;
+        margin-right: 12px !important;
+    }
+    
+    .ant-list-item-meta-avatar img, .ant-list-item-meta-avatar .ant-avatar {
+        width: 50px !important;
+        height: 50px !important; /* Fica quadrado/redondo para poupar espaço */
+        border-radius: 10px !important;
+    }
+    
+    /* Retira o recuo de 200px dos botões para que eles caibam no ecrã */
+    div.message-control-buttons {
+        padding-right: 0px !important;
+        justify-content: center !important; /* Centra os botões no telemóvel */
+    }
+    
+    /* Diminui a fonte do nome e o padding da bolha para a mensagem respirar */
+    .ant-list-item-meta-title, .ant-list-item-meta-title a {
+        font-size: 20px !important;
+        margin-bottom: 6px !important;
+    }
+    
+    .ant-list-item-meta-description {
+        padding: 16px !important;
+    }
 }
