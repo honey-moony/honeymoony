@@ -28,7 +28,7 @@ div.abs-100-dvh {
     margin-bottom: 150px !important;
 }
 
-/* --- AVATAR 320PX --- */
+/* --- AVATAR (TRAVADO PARA DESKTOP - 320PX) --- */
 .ant-list-item-meta-avatar {
     width: 320px !important;
     min-width: 320px !important;
@@ -36,6 +36,7 @@ div.abs-100-dvh {
     flex: 0 0 320px !important;
     margin-top: 25px !important;
     margin-right: 20px !important;
+    transition: all 0.3s ease !important;
 }
 
 .ant-list-item-meta-avatar img, .ant-list-item-meta-avatar .ant-avatar {
@@ -45,6 +46,19 @@ div.abs-100-dvh {
     border-radius: 12px !important;
     border: 1px solid rgba(255, 0, 0, 0.6) !important;
     box-shadow: 0 8px 30px rgba(139, 0, 0, 0.6) !important;
+    transition: all 0.3s ease !important;
+}
+
+/* --- A ÂNCORA PERFEITA --- */
+.ant-list-item-meta-content {
+    position: relative !important;
+    overflow: visible !important;
+}
+
+.ant-list-item-meta-description, .message-full {
+    position: static !important;
+    overflow: visible !important;
+    contain: none !important;
 }
 
 /* --- BOLHA DE CHAT (VIDRO TEMPERADO VERMELHO) --- */
@@ -92,17 +106,17 @@ div.abs-100-dvh {
     font-size: 15px !important;
 }
 
-/* --- BOTÕES DE CONTROLE DA MENSAGEM (AJUSTE FINO) --- */
+/* --- BOTÕES DE CONTROLE DA MENSAGEM (DESKTOP) --- */
 div.message-control-buttons {
     display: flex !important;
-    flex-direction: row !important; /* Garante que ficam sempre numa linha horizontal */
-    flex-wrap: nowrap !important; /* Impede que se empilhem */
+    flex-direction: row !important;
+    flex-wrap: nowrap !important;
     gap: 8px !important;
-    justify-content: flex-end !important; /* Começam da direita para a esquerda */
+    justify-content: flex-end !important;
     margin-top: 15px !important;
     width: 100% !important;
     box-sizing: border-box !important;
-    padding-right: 200px !important; /* A "parede" invisível que os empurra 200px para a esquerda */
+    padding-right: 200px !important;
 }
 
 button.message-control-buttons, 
@@ -130,4 +144,65 @@ button.message-control-buttons:hover,
     box-shadow: 0 0 12px rgba(255, 0, 0, 0.6) !important;
     background: rgba(40, 0, 0, 0.8) !important;
     transform: translateY(-2px) !important;
+}
+
+/* =======================================================
+   RESPONSIVIDADE (ATIVA AUTOMATICAMENTE NO MÓVEL)
+   ======================================================= */
+@media (max-width: 768px) {
+    /* Reduz o Avatar */
+    .ant-list-item-meta-avatar {
+        width: 45px !important;
+        min-width: 45px !important;
+        max-width: 45px !important;
+        flex: 0 0 45px !important;
+        margin-top: 0px !important;
+        margin-right: 10px !important;
+    }
+    
+    .ant-list-item-meta-avatar img, .ant-list-item-meta-avatar .ant-avatar {
+        width: 45px !important;
+        height: 45px !important;
+        border-radius: 8px !important;
+    }
+    
+    /* RESTAURA O NOME */
+    .ant-list-item-meta-title, .ant-list-item-meta-title a {
+        font-size: 20px !important;
+        margin-bottom: 4px !important;
+        max-width: 100% !important; 
+        display: inline-block !important;
+        white-space: normal !important;
+    }
+    
+    .ant-list-item-meta-description {
+        padding: 14px 16px !important;
+        margin-top: 5px !important;
+    }
+
+    /* BOTÕES NO MOBILE: Ficam em baixo do texto, alinhados à direita */
+    div.message-control-buttons, 
+    .message-full > div:has(> button.message-control-buttons) {
+        position: relative !important;
+        top: auto !important;
+        right: auto !important;
+        padding-right: 0px !important; /* Desliga o recuo de 200px do PC */
+        margin-top: 10px !important;
+        width: 100% !important;
+        display: flex !important;
+        justify-content: flex-end !important;
+        transform: none !important;
+        flex-wrap: wrap !important;
+    }
+
+    /* Restaura o tamanho e margens dos botões no mobile */
+    button.message-control-buttons, 
+    .message-full button.ant-btn-text,
+    .message-full button.ant-btn-circle {
+        height: 30px !important;
+        min-width: 30px !important;
+        padding: 0 6px !important;
+        margin-left: 6px !important;
+        transform: none !important;
+    }
 }
