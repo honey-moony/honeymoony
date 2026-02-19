@@ -23,12 +23,12 @@ div.abs-100-dvh {
     border: none !important;
 }
 
-/* Espaço extra no fim do chat para a última mensagem não bater na barra de digitar */
+/* Espaço extra no fim do chat */
 .ant-list-item:last-child {
     margin-bottom: 150px !important;
 }
 
-/* --- AVATAR 320PX (TRAVADO) --- */
+/* --- AVATAR 320PX --- */
 .ant-list-item-meta-avatar {
     width: 320px !important;
     min-width: 320px !important;
@@ -47,25 +47,12 @@ div.abs-100-dvh {
     box-shadow: 0 8px 30px rgba(139, 0, 0, 0.6) !important;
 }
 
-/* --- ÂNCORAS LIMPAS --- */
-.ant-list-item-meta-content {
-    position: relative !important;
-    overflow: visible !important;
-}
-
-.message-full {
-    position: static !important;
-    overflow: visible !important;
-    contain: none !important;
-}
-
 /* --- BOLHA DE CHAT (VIDRO TEMPERADO VERMELHO) --- */
 .ant-list-item-meta-description {
-    position: relative !important;
     background: rgba(15, 10, 10, 0.85) !important;
     backdrop-filter: blur(16px) saturate(180%) !important;
     -webkit-backdrop-filter: blur(16px) saturate(180%) !important;
-    padding: 22px 24px !important; /* Padding normal restaurado */
+    padding: 22px 24px !important;
     border-radius: 0 20px 20px 20px !important;
     color: #f5f5f5 !important;
     font-family: 'Inter', sans-serif !important;
@@ -74,7 +61,6 @@ div.abs-100-dvh {
     border: 1px solid rgba(255, 0, 0, 0.2) !important;
     border-left: 3px solid #ff0000 !important;
     box-shadow: 0 8px 24px rgba(0, 0, 0, 0.6) !important;
-    overflow: visible !important;
 }
 
 /* --- NOME DA PERSONAGEM (CINZEL) --- */
@@ -106,29 +92,22 @@ div.abs-100-dvh {
     font-size: 15px !important;
 }
 
-/* --- BOTÕES NO FLUXO NORMAL (ESTÁVEL E INFALÍVEL PARA TODAS AS MENSAGENS) --- */
-.message-full > div:has(> button.message-control-buttons), 
+/* --- BOTÕES DE CONTROLE DA MENSAGEM --- */
+/* Usa o comportamento natural do Flexbox do site para não quebrar o layout */
 div.message-control-buttons {
-    position: relative !important; /* Volta ao fluxo natural da página */
     display: flex !important;
-    flex-direction: row !important;
+    flex-wrap: wrap !important;
     gap: 8px !important;
     justify-content: flex-end !important;
-    margin-top: 15px !important; /* Empurra os botões para baixo do texto */
-    margin-bottom: 0 !important;
+    margin-top: 15px !important;
     width: 100% !important;
-    z-index: 100 !important;
-    opacity: 1 !important;
-    visibility: visible !important;
-    pointer-events: auto !important;
 }
 
 button.message-control-buttons, 
 .message-full button.ant-btn-text,
 .message-full button.ant-btn-circle {
-    position: relative !important;
-    background: rgba(20, 0, 0, 0.8) !important;
-    border: 1px solid rgba(255, 0, 0, 0.4) !important;
+    background: rgba(20, 0, 0, 0.6) !important;
+    border: 1px solid rgba(255, 0, 0, 0.3) !important;
     color: #ff9999 !important;
     backdrop-filter: blur(8px) !important;
     border-radius: 8px !important;
@@ -147,6 +126,6 @@ button.message-control-buttons:hover,
     color: #ff0000 !important;
     border-color: #ff0000 !important;
     box-shadow: 0 0 12px rgba(255, 0, 0, 0.6) !important;
-    background: rgba(40, 0, 0, 0.9) !important;
+    background: rgba(40, 0, 0, 0.8) !important;
     transform: translateY(-2px) !important;
 }
