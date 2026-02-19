@@ -107,7 +107,7 @@ div.abs-100-dvh {
     font-size: 15px !important;
 }
 
-/* --- BOTÕES DE CONTROLE DA MENSAGEM --- */
+/* --- BOTÕES DE CONTROLE DA MENSAGEM (DESKTOP) --- */
 div.message-control-buttons {
     display: flex !important;
     flex-direction: row !important;
@@ -148,7 +148,7 @@ button.message-control-buttons:hover,
 }
 
 /* =======================================================
-   RESPONSIVIDADE (ATIVA AUTOMATICAMENTE NO MÓVEL)
+   RESPONSIVIDADE (O SEGREDO PARA O MOBILE)
    ======================================================= */
 @media (max-width: 768px) {
     /* Reduz o Avatar para o tamanho normal (50px) */
@@ -167,13 +167,18 @@ button.message-control-buttons:hover,
         border-radius: 10px !important;
     }
     
-    /* Retira o recuo de 200px dos botões e empurra-os para a DIREITA */
-    div.message-control-buttons {
-        padding-right: 0px !important;
-        justify-content: flex-end !important; /* Move os botões para longe da foto */
+    /* RESET TOTAL DOS BOTÕES: Força-os a voltar ao lugar original nativo do site */
+    div.message-control-buttons, 
+    .message-full > div:has(> button.message-control-buttons) {
+        position: static !important;
+        padding-right: 0px !important; /* Desliga o recuo de 200px */
+        margin-top: 10px !important;
+        justify-content: flex-end !important;
+        flex-wrap: wrap !important;
+        width: 100% !important;
     }
     
-    /* Diminui a fonte do nome e o padding da bolha */
+    /* Diminui a fonte do nome e o padding da bolha para ganhar espaço de leitura */
     .ant-list-item-meta-title, .ant-list-item-meta-title a {
         font-size: 20px !important;
         margin-bottom: 6px !important;
