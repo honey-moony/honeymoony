@@ -151,7 +151,7 @@ button.message-control-buttons:hover,
    RESPONSIVIDADE (ATIVA AUTOMATICAMENTE NO MÓVEL)
    ======================================================= */
 @media (max-width: 768px) {
-    /* Reduz o Avatar para o tamanho normal e poupa espaço */
+    /* Reduz o Avatar */
     .ant-list-item-meta-avatar {
         width: 45px !important;
         min-width: 45px !important;
@@ -167,31 +167,45 @@ button.message-control-buttons:hover,
         border-radius: 8px !important;
     }
     
-    /* RESET ABSOLUTO DOS BOTÕES: Mata qualquer regra do desktop */
-    div.message-control-buttons, 
-    .message-full > div:has(> button.message-control-buttons) {
-        position: relative !important;
-        top: auto !important;
-        right: auto !important;
-        bottom: auto !important;
-        left: auto !important;
-        padding: 0px !important; 
-        margin: 12px 0 0 0 !important;
-        justify-content: flex-end !important;
-        align-items: center !important;
-        width: 100% !important;
-        display: flex !important;
-        transform: none !important;
-        flex-wrap: wrap !important;
-    }
-    
-    /* Ajustes finos para a leitura no telemóvel */
+    /* LIMITA O NOME: Garante que o nome não invade a área dos botões */
     .ant-list-item-meta-title, .ant-list-item-meta-title a {
         font-size: 18px !important;
         margin-bottom: 4px !important;
+        max-width: 55% !important; 
+        display: inline-block !important;
+        overflow: hidden !important;
+        text-overflow: ellipsis !important;
+        white-space: nowrap !important;
+    }
+    
+    /* BOTÕES NO MOBILE: Isolados na extrema direita, longe do nome */
+    div.message-control-buttons, 
+    .message-full > div:has(> button.message-control-buttons) {
+        position: absolute !important;
+        top: 0px !important;
+        right: 0px !important;
+        padding-right: 0px !important; /* Desliga o recuo do PC */
+        margin: 0 !important;
+        width: auto !important;
+        display: flex !important;
+        justify-content: flex-end !important;
+        transform: none !important;
+    }
+
+    /* Reduz um pouco a escala dos botões no mobile para não esbarrarem em nada */
+    button.message-control-buttons, 
+    .message-full button.ant-btn-text,
+    .message-full button.ant-btn-circle {
+        height: 28px !important;
+        min-width: 28px !important;
+        padding: 0 4px !important;
+        transform: scale(0.85) !important;
+        transform-origin: right top !important;
+        margin-left: 2px !important;
     }
     
     .ant-list-item-meta-description {
         padding: 14px 16px !important;
+        margin-top: 5px !important; /* Dá um espaço entre o topo e o texto */
     }
 }
