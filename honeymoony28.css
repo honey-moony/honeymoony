@@ -23,7 +23,7 @@ div.abs-100-dvh {
     border: none !important;
 }
 
-/* Espaço extra no fim do chat */
+/* Espaço extra no fim do chat para a última mensagem não bater na barra de digitar */
 .ant-list-item:last-child {
     margin-bottom: 150px !important;
 }
@@ -47,24 +47,26 @@ div.abs-100-dvh {
     box-shadow: 0 8px 30px rgba(139, 0, 0, 0.6) !important;
 }
 
-/* --- A ÂNCORA PERFEITA --- */
+/* --- ÂNCORAS LIMPAS --- */
 .ant-list-item-meta-content {
     position: relative !important;
     overflow: visible !important;
 }
 
-.ant-list-item-meta-description, .message-full {
-    position: static !important;
+.message-full {
+    position: static !important; /* Liberta os botões do texto */
     overflow: visible !important;
     contain: none !important;
 }
 
 /* --- BOLHA DE CHAT (VIDRO TEMPERADO VERMELHO) --- */
 .ant-list-item-meta-description {
+    position: relative !important; /* A bolha volta a ser a âncora dos botões */
     background: rgba(15, 10, 10, 0.85) !important;
     backdrop-filter: blur(16px) saturate(180%) !important;
     -webkit-backdrop-filter: blur(16px) saturate(180%) !important;
-    padding: 22px 24px !important;
+    /* Adicionado padding de 55px embaixo para criar a "área dos botões" sem amassar o texto */
+    padding: 22px 24px 55px 24px !important;
     border-radius: 0 20px 20px 20px !important;
     color: #f5f5f5 !important;
     font-family: 'Inter', sans-serif !important;
@@ -73,6 +75,7 @@ div.abs-100-dvh {
     border: 1px solid rgba(255, 0, 0, 0.2) !important;
     border-left: 3px solid #ff0000 !important;
     box-shadow: 0 8px 24px rgba(0, 0, 0, 0.6) !important;
+    overflow: visible !important;
 }
 
 /* --- NOME DA PERSONAGEM (CINZEL) --- */
@@ -104,12 +107,13 @@ div.abs-100-dvh {
     font-size: 15px !important;
 }
 
-/* --- OS BOTÕES RESGATADOS (AFASTADOS 200PX DA DIREITA) --- */
+/* --- BOTÕES NO RODAPÉ DA MENSAGEM (O LUGAR CERTO) --- */
 .message-full > div:has(> button.message-control-buttons), 
 div.message-control-buttons {
     position: absolute !important;
-    top: 0px !important; 
-    right: 200px !important; /* Recuados 50px para a direita (antes estava 250px) */
+    top: auto !important; /* Desliga a amarração ao topo */
+    bottom: 15px !important; /* Fixa no rodapé de vidro da bolha */
+    right: 20px !important; /* Alinha à direita, na margem interna da bolha */
     display: flex !important;
     flex-direction: row !important;
     gap: 8px !important;
