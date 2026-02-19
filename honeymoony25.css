@@ -49,12 +49,12 @@ div.abs-100-dvh {
 
 /* --- A ÂNCORA PERFEITA --- */
 .ant-list-item-meta-content {
-    position: relative !important; /* Esta é a âncora mestre para os botões */
+    position: relative !important;
     overflow: visible !important;
 }
 
 .ant-list-item-meta-description, .message-full {
-    position: static !important; /* Liberta os botões da "prisão" da bolha */
+    position: static !important;
     overflow: visible !important;
     contain: none !important;
 }
@@ -104,12 +104,12 @@ div.abs-100-dvh {
     font-size: 15px !important;
 }
 
-/* --- OS BOTÕES RESGATADOS (ALINHADOS AO NOME) --- */
+/* --- OS BOTÕES RESGATADOS (AFASTADOS 50PX PARA A ESQUERDA) --- */
 .message-full > div:has(> button.message-control-buttons), 
 div.message-control-buttons {
     position: absolute !important;
-    top: 0px !important; /* Como a âncora agora é o topo do post, o 0px alinha com o nome */
-    right: 0px !important;
+    top: 0px !important; 
+    right: 50px !important; /* Movidos 50px para a esquerda */
     display: flex !important;
     flex-direction: row !important;
     gap: 8px !important;
