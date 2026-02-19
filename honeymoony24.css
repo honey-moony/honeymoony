@@ -8,7 +8,6 @@ main, section, .ant-list-item, .ant-list-item-meta {
     background-color: transparent !important;
 }
 
-/* Camada nativa de fundo do Chub */
 div.abs-100-dvh {
     background-image: url('https://files.catbox.moe/61ojci.webp') !important;
     background-size: cover !important;
@@ -19,18 +18,17 @@ div.abs-100-dvh {
     z-index: 0 !important;
 }
 
-/* Limpeza de fundos residuais e sombras das mensagens nativas */
 .ant-list-item.alpha-background, .message-full {
     background: transparent !important;
     border: none !important;
 }
 
-/* Margem extra no fim do chat */
+/* Espaço extra no fim do chat */
 .ant-list-item:last-child {
     margin-bottom: 150px !important;
 }
 
-/* --- AVATAR 320PX (TRAVADO E BLINDADO) --- */
+/* --- AVATAR 320PX (TRAVADO) --- */
 .ant-list-item-meta-avatar {
     width: 320px !important;
     min-width: 320px !important;
@@ -49,24 +47,20 @@ div.abs-100-dvh {
     box-shadow: 0 8px 30px rgba(139, 0, 0, 0.6) !important;
 }
 
-/* --- ANTI-CORTE: O SEGREDO PARA OS BOTÕES NÃO SUMIREM --- */
-.ant-list-item, 
-.ant-list-item-meta, 
-.ant-list-item-meta-content, 
-.ant-list-item-meta-description, 
-.message-full {
+/* --- A ÂNCORA PERFEITA --- */
+.ant-list-item-meta-content {
+    position: relative !important; /* Esta é a âncora mestre para os botões */
+    overflow: visible !important;
+}
+
+.ant-list-item-meta-description, .message-full {
+    position: static !important; /* Liberta os botões da "prisão" da bolha */
     overflow: visible !important;
     contain: none !important;
 }
 
-/* Remove a âncora do texto e coloca-a APENAS na bolha vermelha */
-.message-full {
-    position: static !important; 
-}
-
 /* --- BOLHA DE CHAT (VIDRO TEMPERADO VERMELHO) --- */
 .ant-list-item-meta-description {
-    position: relative !important; /* A âncora verdadeira para os botões */
     background: rgba(15, 10, 10, 0.85) !important;
     backdrop-filter: blur(16px) saturate(180%) !important;
     -webkit-backdrop-filter: blur(16px) saturate(180%) !important;
@@ -81,7 +75,7 @@ div.abs-100-dvh {
     box-shadow: 0 8px 24px rgba(0, 0, 0, 0.6) !important;
 }
 
-/* --- NOME DA PERSONAGEM (CINZEL - ELEGANTE E MADURO) --- */
+/* --- NOME DA PERSONAGEM (CINZEL) --- */
 .ant-list-item-meta-title, .ant-list-item-meta-title a {
     font-family: 'Cinzel', serif !important;
     font-size: 26px !important;
@@ -110,11 +104,11 @@ div.abs-100-dvh {
     font-size: 15px !important;
 }
 
-/* --- BOTÕES AO LADO DO NOME --- */
-div:has(> button.message-control-buttons), 
+/* --- OS BOTÕES RESGATADOS (ALINHADOS AO NOME) --- */
+.message-full > div:has(> button.message-control-buttons), 
 div.message-control-buttons {
     position: absolute !important;
-    top: -46px !important; /* Altura perfeita para estar lado a lado com o nome */
+    top: 0px !important; /* Como a âncora agora é o topo do post, o 0px alinha com o nome */
     right: 0px !important;
     display: flex !important;
     flex-direction: row !important;
@@ -123,11 +117,10 @@ div.message-control-buttons {
     margin: 0 !important;
     width: auto !important;
     z-index: 99999 !important;
-    background: transparent !important;
-    border: none !important;
     opacity: 1 !important;
     visibility: visible !important;
     pointer-events: auto !important;
+    transform: none !important;
 }
 
 button.message-control-buttons, 
@@ -148,6 +141,7 @@ button.message-control-buttons,
     transition: all 0.2s ease !important;
     opacity: 1 !important;
     visibility: visible !important;
+    margin: 0 !important;
 }
 
 button.message-control-buttons:hover, 
