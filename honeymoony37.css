@@ -29,7 +29,7 @@ div.abs-100-dvh {
     margin-bottom: 150px !important;
 }
 
-/* --- 2. AVATAR (PC: 320PX / MOBILE: AUTO) --- */
+/* --- 2. AVATAR (PC TRAVADO: 320x480) --- */
 .ant-list-item-meta-avatar {
     width: 320px !important;
     min-width: 320px !important;
@@ -41,9 +41,8 @@ div.abs-100-dvh {
 }
 
 .ant-list-item-meta-avatar img, .ant-list-item-meta-avatar .ant-avatar {
-    width: 100% !important;
-    height: auto !important;
-    min-height: 480px !important;
+    width: 320px !important; /* Trava a largura original */
+    height: 480px !important; /* Trava a altura original de poster */
     object-fit: cover !important;
     border-radius: 12px !important;
     border: 1px solid rgba(255, 0, 0, 0.6) !important;
@@ -134,9 +133,10 @@ button.message-control-buttons:hover {
 }
 
 /* =========================================
-   MOBILE OVERRIDES (RESPONSIVO)
-   ========================================= */
+   MOBILE OVERRIDES (RESPONSIVO)
+   ========================================= */
 @media (max-width: 768px) {
+    /* Avatar menor no celular */
     .ant-list-item-meta-avatar {
         width: 60px !important;
         min-width: 60px !important;
@@ -145,8 +145,11 @@ button.message-control-buttons:hover {
         margin-top: 10px !important;
     }
     
+    /* Força a imagem a ficar em 60x60 no celular */
     .ant-list-item-meta-avatar img, .ant-list-item-meta-avatar .ant-avatar {
-        min-height: 60px !important;
+        width: 60px !important;
+        height: 60px !important;
+        min-height: auto !important; /* Remove a altura de 480px do PC */
         border-radius: 8px !important;
     }
 
