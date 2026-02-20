@@ -41,22 +41,22 @@ div.abs-100-dvh {
 }
 
 .ant-list-item-meta-avatar img, .ant-list-item-meta-avatar .ant-avatar {
-    width: 320px !important;
-    height: 480px !important;
+    width: 320px !important; 
+    height: 480px !important; 
     object-fit: cover !important;
     border-radius: 12px !important;
     border: 1px solid rgba(255, 159, 0, 0.6) !important;
     box-shadow: 0 8px 30px rgba(255, 159, 0, 0.4) !important;
 }
 
-/* --- 3. BOLHA DE CHAT (VIDRO TEMPERADO LARANJA) --- */
+/* --- 3. BOLHA DE CHAT (VIDRO LARANJA) --- */
 .ant-list-item-meta-content {
     overflow: visible !important;
 }
 
 .ant-list-item-meta-description {
     position: relative !important;
-    background: rgba(15, 10, 5, 0.88) !important;
+    background: rgba(18, 18, 24, 0.88) !important;
     backdrop-filter: blur(14px) saturate(160%) !important;
     -webkit-backdrop-filter: blur(14px) saturate(160%) !important;
     padding: 18px 24px !important;
@@ -80,10 +80,9 @@ div.abs-100-dvh {
     letter-spacing: 2px !important;
     text-shadow: 0 0 15px rgba(255, 159, 0, 0.5), 2px 2px 4px rgba(0, 0, 0, 0.8) !important;
     margin-bottom: 8px !important;
-    display: inline-block !important;
 }
 
-/* --- 5. BOTÕES DE CONTROLE (CLONE EXATO DA YUI) --- */
+/* --- 5. BOTÕES DE CONTROLE (LÓGICA BLEACHBUNNY) --- */
 div.message-control-buttons {
     display: flex !important;
     flex-wrap: wrap !important;
@@ -100,7 +99,7 @@ div.message-control-buttons {
 button.message-control-buttons, 
 .message-full button.ant-btn-circle,
 .message-full button.ant-btn-text {
-    background: rgba(30, 20, 10, 0.6) !important; /* Fundo escuro com tom quente */
+    background: rgba(30, 30, 40, 0.6) !important;
     backdrop-filter: blur(8px) !important;
     border: 1px solid rgba(255, 159, 0, 0.3) !important;
     border-radius: 8px !important;
@@ -122,7 +121,7 @@ button.message-control-buttons:hover {
 
 /* --- 6. BARRA DE INPUT --- */
 .ant-layout-footer form, div.chat-input-container form {
-    background: rgba(15, 10, 5, 0.88) !important;
+    background: rgba(18, 18, 24, 0.88) !important;
     backdrop-filter: blur(16px) saturate(180%) !important;
     border: 1px solid rgba(255, 159, 0, 0.4) !important;
     border-radius: 20px !important;
@@ -135,7 +134,7 @@ button.message-control-buttons:hover {
 }
 
 /* =========================================
-   MOBILE OVERRIDES (RESPONSIVO PARA A ALEXIS)
+   MOBILE OVERRIDES (RESPONSIVO)
    ========================================= */
 @media (max-width: 768px) {
     /* Avatar menor no celular */
@@ -155,7 +154,6 @@ button.message-control-buttons:hover {
         border-radius: 8px !important;
     }
 
-    /* Comportamento dos botões clonado da Yui */
     div.message-control-buttons {
         /* No Mobile, removemos o recuo de 200px */
         padding-right: 0px !important;
