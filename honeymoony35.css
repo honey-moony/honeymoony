@@ -49,7 +49,7 @@ div.abs-100-dvh {
     transition: all 0.3s ease !important;
 }
 
-/* --- A ÂNCORA E BOLHA --- */
+/* --- ÂNCORAS --- */
 .ant-list-item-meta-content {
     position: relative !important;
     overflow: visible !important;
@@ -101,7 +101,7 @@ div.abs-100-dvh {
     padding: 10px 15px !important;
 }
 
-/* --- BOTÕES DE CONTROLE (DESKTOP) --- */
+/* --- BOTÕES DE CONTROLE DA MENSAGEM (PC) --- */
 div.message-control-buttons {
     display: flex !important;
     flex-direction: row !important;
@@ -111,14 +111,14 @@ div.message-control-buttons {
     margin-top: 15px !important;
     width: 100% !important;
     box-sizing: border-box !important;
-    padding-right: 200px !important; /* Empurra para a esquerda no PC */
+    padding-right: 200px !important; /* Recuo do PC */
 }
 
 button.message-control-buttons, 
 .message-full button.ant-btn-text,
 .message-full button.ant-btn-circle {
-    background: rgba(20, 0, 0, 0.6) !important;
-    border: 1px solid rgba(255, 0, 0, 0.3) !important;
+    background: rgba(20, 0, 0, 0.8) !important;
+    border: 1px solid rgba(255, 0, 0, 0.4) !important;
     color: #ff9999 !important;
     backdrop-filter: blur(8px) !important;
     border-radius: 8px !important;
@@ -131,18 +131,8 @@ button.message-control-buttons,
     transition: all 0.2s ease !important;
 }
 
-button.message-control-buttons:hover, 
-.message-full button.ant-btn-text:hover,
-.message-full button.ant-btn-circle:hover {
-    color: #ff0000 !important;
-    border-color: #ff0000 !important;
-    box-shadow: 0 0 12px rgba(255, 0, 0, 0.6) !important;
-    background: rgba(40, 0, 0, 0.8) !important;
-    transform: translateY(-2px) !important;
-}
-
 /* =======================================================
-   RESPONSIVIDADE (MOBILE)
+   RESPONSIVIDADE (MOBILE - CORRIGIDA)
    ======================================================= */
 @media (max-width: 768px) {
     .ant-list-item-meta-avatar {
@@ -165,24 +155,26 @@ button.message-control-buttons:hover,
         margin-bottom: 4px !important;
     }
 
-    /* FORÇA OS BOTÕES A FICAREM LADO A LADO NO MOBILE */
+    /* TRANCAMENTO HORIZONTAL: Impede o empilhamento vertical no mobile */
     div.message-control-buttons, 
     .message-full > div:has(> button.message-control-buttons) {
         position: relative !important;
-        padding-right: 0px !important; /* Remove o recuo de 200px do PC */
-        margin-top: 10px !important;
         display: flex !important;
-        flex-direction: row !important; /* Garante alinhamento horizontal */
-        flex-wrap: wrap !important; /* Permite quebrar se o ecrã for mini, mas mantém a linha */
+        flex-direction: row !important; /* Força linha */
+        flex-wrap: nowrap !important; /* PROIBE quebrar linha */
         justify-content: flex-end !important;
+        padding-right: 0px !important; /* Mata o recuo de 200px */
+        margin-top: 12px !important;
         width: 100% !important;
+        overflow: visible !important;
     }
 
     button.message-control-buttons, 
     .message-full button.ant-btn-text,
     .message-full button.ant-btn-circle {
-        height: 30px !important;
-        min-width: 30px !important;
-        margin-left: 6px !important;
+        height: 28px !important;
+        min-width: 28px !important;
+        margin-left: 4px !important; /* Espaço reduzido para caberem todos */
+        padding: 0 4px !important;
     }
 }
