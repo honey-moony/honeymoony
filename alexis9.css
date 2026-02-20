@@ -83,7 +83,7 @@ div.abs-100-dvh {
     display: inline-block !important;
 }
 
-/* --- 5. BOTÕES DE CONTROLE (ESTRUTURA FLEXBOX LIMPA) --- */
+/* --- 5. BOTÕES DE CONTROLE (CLONE EXATO DA YUI) --- */
 div.message-control-buttons {
     display: flex !important;
     flex-wrap: wrap !important;
@@ -100,7 +100,7 @@ div.message-control-buttons {
 button.message-control-buttons, 
 .message-full button.ant-btn-circle,
 .message-full button.ant-btn-text {
-    background: rgba(30, 20, 10, 0.6) !important;
+    background: rgba(30, 20, 10, 0.6) !important; /* Fundo escuro com tom quente */
     backdrop-filter: blur(8px) !important;
     border: 1px solid rgba(255, 159, 0, 0.3) !important;
     border-radius: 8px !important;
@@ -138,7 +138,7 @@ button.message-control-buttons:hover {
    MOBILE OVERRIDES (RESPONSIVO PARA A ALEXIS)
    ========================================= */
 @media (max-width: 768px) {
-    /* Avatar menor e quadrado/arredondado no celular */
+    /* Avatar menor no celular */
     .ant-list-item-meta-avatar {
         width: 60px !important;
         min-width: 60px !important;
@@ -147,15 +147,17 @@ button.message-control-buttons:hover {
         margin-top: 10px !important;
     }
     
+    /* Força a imagem a ficar em 60x60 no celular */
     .ant-list-item-meta-avatar img, .ant-list-item-meta-avatar .ant-avatar {
         width: 60px !important;
         height: 60px !important;
-        min-height: auto !important;
+        min-height: auto !important; /* Remove a altura de 480px do PC */
         border-radius: 8px !important;
     }
 
+    /* Comportamento dos botões clonado da Yui */
     div.message-control-buttons {
-        /* Remove o recuo de 200px no Mobile e alinha à direita */
+        /* No Mobile, removemos o recuo de 200px */
         padding-right: 0px !important;
         justify-content: flex-end !important;
         gap: 6px !important;
